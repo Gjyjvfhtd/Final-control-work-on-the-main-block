@@ -18,3 +18,42 @@ for (int i = 0; i < array.Length; i++)
     Console.WriteLine($"Введите элемент массива №{j}");
     array[i] = Console.ReadLine();
 }
+
+int CountingElementsUpToThreeCharacters(string[] arr)   //Считаем количество элементов подходящих под условие задачи 
+{
+    int iter = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i].Length <= 3)
+        {
+            iter++;
+        }
+    }
+    return iter;   //количество элементов подходящих под условие задачи == количество элементов итогового массива
+}
+
+string[] RemovingMoreThanThreeCharactersFromAnArrayOfStrings(string[] arr)   //Создаем новый массив и заполняем элесентами подходящими под условия задачи
+{
+    string[] FinalArray = new string[CountingElementsUpToThreeCharacters(arr)];   //Тут у нас создается массив строк количество элемнтов которого берется из функии с подсчетом
+    int IterForFinalArray = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i].Length <= 3)
+        {
+            FinalArray[IterForFinalArray] = arr[i];
+            IterForFinalArray++;   //Этот счетчик двигает нас по элементам нового массива 
+        }
+    }
+    return FinalArray;   //Итоговый массив
+}
+
+void WriteArray(string[] arr)   //Вывод массива
+{
+    Console.WriteLine("Итоговый массив:");
+    for (int i = 0; i < arr.Length; i++)
+    {
+        Console.Write(arr[i] + "  ");
+    }
+}
+
+WriteArray(RemovingMoreThanThreeCharactersFromAnArrayOfStrings(array));
