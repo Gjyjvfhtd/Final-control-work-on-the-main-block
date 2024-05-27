@@ -8,17 +8,6 @@
 // [“1234”, “1567”, “-2”, “computer science”] → [“-2”]
 // [“Russia”, “Denmark”, “Kazan”] → []
 
-Console.WriteLine("Введите количество элементов массива");
-int n = Convert.ToInt32(Console.ReadLine());
-string[] array = new string[n];
-int j = 0;
-for (int i = 0; i < array.Length; i++)
-{
-    j = i + 1;
-    Console.WriteLine($"Введите элемент массива №{j}");
-    array[i] = Console.ReadLine();
-}
-
 int CountingElementsUpToThreeCharacters(string[] arr)   //Считаем количество элементов подходящих под условие задачи 
 {
     int iter = 0;
@@ -54,6 +43,18 @@ void WriteArray(string[] arr)   //Вывод массива
     {
         Console.Write(arr[i] + "  ");
     }
+}
+
+Console.WriteLine("Введите количество элементов массива"); // Первичные переменные и ввод массива 
+int n = Convert.ToInt32(Console.ReadLine());
+string[] array = new string[n];
+int j = 0;
+
+for (int i = 0; i < array.Length; i++)
+{
+    j = i + 1;
+    Console.WriteLine($"Введите элемент массива №{j}");
+    array[i] = Console.ReadLine();
 }
 
 WriteArray(RemovingMoreThanThreeCharactersFromAnArrayOfStrings(array));
